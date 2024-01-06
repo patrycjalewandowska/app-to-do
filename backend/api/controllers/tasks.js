@@ -1,4 +1,6 @@
 const Task = require("../routes/models/task");
+
+// wszytskie zadania
 exports.tasks_get_all = (req,res,next) => {
     Task.find().
     then((result) => {
@@ -7,7 +9,7 @@ exports.tasks_get_all = (req,res,next) => {
     catch( (err) => console.log(err));
 }
 
-
+// nowe zadanie
 exports.tasks_add_new = (req,res,next) => {
     console.log(req.body.taskCreator);
     var task = new Task({
@@ -22,6 +24,7 @@ exports.tasks_add_new = (req,res,next) => {
         });
 }
 
+// wyswietlenie jednego zadania
 exports.tasks_get_by_id = (req,res,next) => {
     const id = req.params.id;
     Task.findById(id).
@@ -32,6 +35,7 @@ exports.tasks_get_by_id = (req,res,next) => {
    
 }
 
+// aktualizacja 
 exports.tasks_change = (req, res, next) => {
     const id = req.params.id;
         const newTask = {
@@ -50,6 +54,7 @@ exports.tasks_change = (req, res, next) => {
         .catch(err => res.status(500).json({ message: "Internal Server Error", error: err }));
 };
 
+// usuwanie
 exports.tasks_delete = (req,res,next) => {
     const id = req.params.id;
     Task.findByIdAndDelete(id).

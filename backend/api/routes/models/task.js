@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); 
+// model danych 
 
 const taskSchema = mongoose.Schema({
     title : String,

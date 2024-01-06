@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 
-
+// Zakładanie nowego konta
 router.post('/register', async (req, res, next) => {
 
     const userWithAccount = await User.findOne({ email: req.body.email });
@@ -29,6 +29,7 @@ router.post('/register', async (req, res, next) => {
 
   });
 
+  //logowanie
 router.post('/login', (req,res,next) => {
     User.findOne({email: req.body.email}).
     then(user => {
