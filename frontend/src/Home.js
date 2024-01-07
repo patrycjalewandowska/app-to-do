@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';  // Zakładam, że używasz React Router
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
